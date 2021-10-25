@@ -1,0 +1,28 @@
+<div class="ladW-container-section-input" style="background:#fff;"  *ngIf="type != 'search'">
+	
+	<div class="ladW-input-form" *ngIf="type != 'toggle' && type != 'search'" [style.max-width]="width">
+		<div >
+			<input type="{{ type }}" placeholder="{{ placeholder }}"
+			[(ngModel)]="formField.value" (ngModelChange)="updateValue()" *ngIf="label != ''"
+			class="native-input-custom" [style.margin-left]="margin_left">
+			<input type="{{ type }}" placeholder="{{ placeholder }}"
+			[(ngModel)]="formField.value" (ngModelChange)="updateValue()" style="width:98%;" [style.margin-left]="margin_left" *ngIf="label === ''" class="native-input-custom">
+			<span *ngIf="label != ''">{{ label }}</span>
+		</div>
+		
+	</div>
+	<div *ngIf="type === 'toggle'" class="toggle">
+		    <mat-slide-toggle class="native-slide-toggle-custom" [(ngModel)]="toggle"
+		    (change)="updateFunc($event)"></mat-slide-toggle>
+		</div>
+	
+</div>
+<div class="ladW-container-section-input ladW-search-section" *ngIf="type === 'search'">
+
+<div  class="ladW-input-form ladW-search">
+		<input type="{{ type }}" placeholder="{{ placeholder }}"
+			[(ngModel)]="formField.value" (ngModelChange)="updateValue()" *ngIf="label != ''">
+			<input type="{{ type }}" placeholder="{{ placeholder }}"
+			[(ngModel)]="formField.value" (ngModelChange)="updateValue()" style="width:98%;" *ngIf="label === ''">
+	</div>
+</div>
