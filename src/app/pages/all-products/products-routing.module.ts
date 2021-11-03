@@ -11,6 +11,10 @@ const routes: Routes = [
         children: []
       }
     ]
+  },
+  {
+        path: 'add-product',
+		component: AllProductsComponent,
   }
 ];
 
